@@ -15,6 +15,45 @@
         <h1 class="mt-4">Relação de Documentos</h1>
         <a href="home.php">Voltar</a>
         <h2 class="mt-4">Documentos Disponíveis:</h2>
+        <? if(isset($_GET['exclusao']) && $_GET['exclusao']=='0'){?>
+                <div id="modal" class="show.bs.modal " tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-danger">Erro</h5>
+                        <button type="button" class="close" data-dismiss="show.bs.modal" aria-label="Close">
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Não é possível remover usuário logado</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location=remove_funcionario.php" >Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <?}else if(isset($_GET['exclusao']) && $_GET['exclusao']=='1'){?>
+                
+                <div id="modal" class="show.bs.modal " tabindex="-1" role="dialog">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-success">Sucesso</h5>
+                        <button type="button" class="close" data-dismiss="show.bs.modal" aria-label="Close">
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Usuário e documentos removidos</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location=remove_funcionario.php" >Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+            <?}?>
         <table class="list-group mt-3 d-flex" >
             <thead class="">
                 <tr class="d-flex justify-content-between">

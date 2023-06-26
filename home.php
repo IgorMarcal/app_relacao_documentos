@@ -36,7 +36,7 @@
                           <p class="nav-link text-light">Olá, <?= $nome_logado ?></p>
                       </li>
                       <li class="nav-item p-2">
-                          <a class="nav-link text-light" href="logoff.php">Alterar senha</a>
+                          <a class="nav-link text-light" href="alterar_senha.php">Alterar senha</a>
                       </li>
                   </ul>
                   

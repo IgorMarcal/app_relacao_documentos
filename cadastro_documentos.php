@@ -25,7 +25,6 @@
             $stmt->execute();
         }
 
-        
 
         public function exibeDocumento($id){
 
@@ -33,7 +32,7 @@
             $stmt = $this->conexao->prepare($query);
             $stmt->bindValue(1, $id);
             $stmt->execute();
-            return $consulta = $stmt->fetch(PDO::FETCH_OBJ);
+            return $documento = $stmt->fetch(PDO::FETCH_OBJ);
         }
 
         public function recuperarDocumentos($id){

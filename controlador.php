@@ -33,11 +33,12 @@
 
             $cadastro = new CadastrarFunc($nome, $email, $senha, $tipo_user, $conexao);
             $cadastro->inserir();
-            if($tela=='index'){
-            header('Location: tela_cadastro_funcionario_index.php?cadastro=success');
+            if($tela === 'index'){
+                header('Location: tela_cadastro_funcionario_index.php?cadastro=success');
+            }else{
+                header('Location: tela_cadastro_funcionario.php?cadastro=success');
 
             }
-            header('Location: tela_cadastro_funcionario.php?cadastro=success');
         }
         
 	
@@ -46,11 +47,6 @@
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $tipo_usuario = '';
-
-        //echo $nome ;
-        echo $email  ;
-        echo $senha  ;
-        //echo $tipo_user;
 
         $conexao = new Conexao();
 
@@ -73,7 +69,7 @@
             $_SESSION['nome_logado'] = $nome_logado;
             $_SESSION['email_logado'] = $email_logado;
             $_SESSION['senha_logado'] = $senha_logado;
-           ( $_SESSION['id_usuario'] = $id_usuario);
+            $_SESSION['id_usuario'] = $id_usuario;
 
 
             $_SESSION['tipo_usuario_logado'] = $tipo_usuario_logado;
@@ -89,7 +85,6 @@
 	
 	}else if($acao == 'excluir'){
 
-
         if($tipo=='doc'){
 
             $id_doc = $_GET['id_doc'];
@@ -104,42 +99,60 @@
             $id = $_GET['id'];
             $conexao = new Conexao();
             $remove = new CadastrarFunc('', '','','', $conexao);
-            $remove->excluir($id);
+            $consulta = new CadastrarFunc('', '','','', $conexao);
+            $id_logado = $consulta->recuperar->id('');
+            
 
-            header('Location: remove_funcionario.php?exclusao=1');
+            if($id !== $id_logado){
+                $remove->excluir($id);
+                header('Location: remove_funcionario.php?exclusao=1');
+            }else{
+                header('Location: remove_funcionario.php?exclusao=0');
+            }
+            
+
+            
             
         }
         
     }else if($acao == 'atualizar'){
-        // Obtém os dados do formulário
+
         $email = $_POST['email'];
         $senhaAtual = $_POST['senha_atual'];
         $senhaNova = $_POST['senha_nova'];
         $senhaNovaConfirma = $_POST['senha_nova_confirma'];
 
-        // Verifica se as senhas nova e de confirmação correspondem
+
         if ($senhaNova !== $senhaNovaConfirma) {
             header('Location: alterar_senha.php?senha_nova=incorreto');
             exit;
         }
 
-        // Cria uma instância do objeto de cadastro de funcionários
+
         $conexao = new Conexao();
         $cadastroFuncionarios = new CadastrarFunc('', '', '', '', $conexao);
 
-        // Recupera a senha atual do funcionário com base no email
+
         $consulta = $cadastroFuncionarios->recuperarPorEmail($email);
         $senhaAtualBanco = $consulta->senha;
 
-        // Verifica se a senha atual fornecida corresponde à senha do banco de dados
+
         if ($senhaAtual === $senhaAtualBanco) {
-            // Atualiza a senha no banco de dados
             $cadastroFuncionarios->updateSenha($email, $senhaNova);
 
-            header('Location: alterar_senha.php?status=atualizado');
+            if($tela === 'index'){  
+                header('Location: alterar_senha_index.php?status=atualizado');
+            }else{
+                header('Location: alterar_senha.php?status=atualizado');
+            }
             exit;
         } else {
-            header('Location: alterar_senha.php?senha_atual=incorreto');
+            if($tela === 'index'){
+                header('Location: alterar_senha_index.php?senha_atual=incorreto');
+            }else{
+                header('Location: alterar_senha.php?senha_atual=incorreto');
+            }
+            
             exit;
         }
     }

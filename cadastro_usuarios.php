@@ -41,6 +41,16 @@
             
         }
 
+        public function recuperarPorEmail($email){
+            $query = 'select senha FROM tb_funcionarios where email = ?';
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(1,$email);
+            $stmt->execute();
+            $consulta = $stmt->fetch(PDO::FETCH_OBJ);
+            return $consulta;
+        }
+
+        
         public function recuperar($nome){
 
             if ($nome == '') {
@@ -72,11 +82,15 @@
         }
 
         public function excluir($id_func){
-            $query = 'DELETE FROM tb_funcionarios WHERE id = ?';
-            $stmt = $this->conexao->prepare($query);
-            $stmt->bindValue(1, $id_func);
-            $stmt->execute();
-            return;
+            $queryDocumentos = 'DELETE FROM tb_documentos WHERE id_funcionario = ?';
+            $stmtDocumentos = $this->conexao->prepare($queryDocumentos);
+            $stmtDocumentos->bindValue(1, $id_func);
+            $stmtDocumentos->execute();
+
+            $queryFuncionario = 'DELETE FROM tb_funcionarios WHERE id = ?';
+            $stmtFuncionario = $this->conexao->prepare($queryFuncionario);
+            $stmtFuncionario->bindValue(1, $id_func);
+            $stmtFuncionario->execute();
         }
 
 

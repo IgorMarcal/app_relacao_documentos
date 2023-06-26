@@ -31,7 +31,7 @@
                         <p>Senha atualida com sucesso no sistema</p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location='alterar_senha_index.php'" >Close</button>
+                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location='alterar_senha.php'" >Close</button>
                       </div>
                     </div>
                   </div>
@@ -44,7 +44,7 @@
                 </div>
                 
                 <div class="card-body ">
-                    <form action="controlador.php?acao=atualizar&tipo=usu&tela=index" method="post">
+                    <form action="controlador.php?acao=atualizar&tipo=usu&tela=home" method="post">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Email:</label>
                             <div class="col-sm-10">
@@ -80,7 +80,7 @@
                         <button class="btn btn-lg btn-success btn-block" type="submit">Atualizar</button>
                     </form>
 
-                    <a href="index.php" class="btn btn-lg btn-danger btn-block" type="submit">Voltar</a>
+                    <a href="home.php" class="btn btn-lg btn-danger btn-block" type="submit">Voltar</a>
                 </div>
             </div>
         
