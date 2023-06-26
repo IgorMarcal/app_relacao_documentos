@@ -57,7 +57,9 @@
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
                 
               </form>
-              <!--<a href="tela_cadastro.php" class="mx-auto">Cadastrar funcionário</a>-->
+              <a href="tela_cadastro_funcionario_index.php" class="mx-auto">Cadastrar funcionário</a>
+                  <br>
+              <a href="alterar_senha_index.php" class="mx-auto">Esqueceu a senha?</a>
             </div>
           </div>
         </div>

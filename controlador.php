@@ -6,6 +6,8 @@
     
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
     $tipo = isset($_GET['tipo']) ? $_GET['tipo'] : $tipo;
+    $tela = isset($_GET['tela']) ? $_GET['tela'] : $tela;
+
 
     
     if($acao == 'inserir' ) {
@@ -31,12 +33,12 @@
 
             $cadastro = new CadastrarFunc($nome, $email, $senha, $tipo_user, $conexao);
             $cadastro->inserir();
-            header('Location: tela_cadastro.php?cadastro=success');
+            if($tela=='index'){
+            header('Location: tela_cadastro_funcionario_index.php?cadastro=success');
+
+            }
+            header('Location: tela_cadastro_funcionario.php?cadastro=success');
         }
-        
-        
-        
-    
         
 	
 	}else if($acao == 'recuperar' ) {
@@ -108,6 +110,38 @@
             
         }
         
+    }else if($acao == 'atualizar'){
+        // Obtém os dados do formulário
+        $email = $_POST['email'];
+        $senhaAtual = $_POST['senha_atual'];
+        $senhaNova = $_POST['senha_nova'];
+        $senhaNovaConfirma = $_POST['senha_nova_confirma'];
+
+        // Verifica se as senhas nova e de confirmação correspondem
+        if ($senhaNova !== $senhaNovaConfirma) {
+            header('Location: alterar_senha.php?senha_nova=incorreto');
+            exit;
+        }
+
+        // Cria uma instância do objeto de cadastro de funcionários
+        $conexao = new Conexao();
+        $cadastroFuncionarios = new CadastrarFunc('', '', '', '', $conexao);
+
+        // Recupera a senha atual do funcionário com base no email
+        $consulta = $cadastroFuncionarios->recuperarPorEmail($email);
+        $senhaAtualBanco = $consulta->senha;
+
+        // Verifica se a senha atual fornecida corresponde à senha do banco de dados
+        if ($senhaAtual === $senhaAtualBanco) {
+            // Atualiza a senha no banco de dados
+            $cadastroFuncionarios->updateSenha($email, $senhaNova);
+
+            header('Location: alterar_senha.php?status=atualizado');
+            exit;
+        } else {
+            header('Location: alterar_senha.php?senha_atual=incorreto');
+            exit;
+        }
     }
 
 

@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="col-4 d-flex justify-content-center">
-                            <a href="tela_cadastro.php">
+                            <a href="tela_cadastro_funcionario.php">
                                 <p class="mx-auto">Cadastrar funcionário</p>
                             </a>  
                         </div>

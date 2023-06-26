@@ -60,12 +60,23 @@
             
         }
         
-        public function update(){
+        public function updateSenha($email, $novaSenha){
 
+            $query = 'UPDATE tb_funcionarios SET senha = ? WHERE email = ?';
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(1, $novaSenha);
+            $stmt->bindValue(2, $email);
+            $stmt->execute();
+
+            
         }
 
-        public function remove(){
-
+        public function excluir($id_func){
+            $query = 'DELETE FROM tb_funcionarios WHERE id = ?';
+            $stmt = $this->conexao->prepare($query);
+            $stmt->bindValue(1, $id_func);
+            $stmt->execute();
+            return;
         }
 
 

@@ -33,7 +33,7 @@
                         <p>Usuario cadastrado com sucesso no sistema</p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location='tela_cadastro.php'" >Close</button>
+                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location='tela_cadastro_funcionario.php'" >Close</button>
                       </div>
                     </div>
                   </div>
