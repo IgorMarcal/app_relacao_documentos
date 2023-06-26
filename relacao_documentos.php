@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1 class="mt-4">Relação de Documentos</h1>
-        <a href="home.php">Voltar</a>
+        <a href="home.php" class="btn btn-outline-success btn-sm">Voltar</a>
         <h2 class="mt-4">Documentos Disponíveis:</h2>
         <ul class="list-group mt-3">
             <?php

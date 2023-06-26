@@ -62,15 +62,28 @@
                                 <input name="senha" type="password" class="form-control" placeholder="Senha">
                             </div>
                         </div>
-                        <div class="form-group custom-control custom-radio" >
-                            <input type="radio" id="radio_adm" name="tipo_user" class="custom-control-input"  value="1">
-                            <label class="custom-control-label" for="radio_adm"> Administrador</label>
+                        
+                        <div class="form-group row" >
+                          <label class="col-2 col-form-label">Setor:</label>
+                          <div class="col-10 "> 
+                            <select  class="form-select col-12 col-form-label "  name="tipo_user">
+                              <option value="1">RH</option>
+                              <option value="2">JURÍDICO</option>
+                              <option value="2">ARQUIVOS</option>
+                              <option value="1">TI</option>
+                              <option value="2">LICITAÇÕES</option>
+                              <option value="2">FINANCEIRO</option>
+                              <option value="2">COMPRAS</option>
+                              <option value="2">IDIOMAS</option>
+                              <option value="2">PROJETOS</option>
+                              <option value="2">RECEPÇÃO</option>
+                              <option value="2">CONCURSOS</option>
+                              <option value="1">DIRETORIA</option>                   
+                              <option value="2">NOVOS NEGÓCIOS</option>
+                              <option value="2">TERCEIRIZADO</option>                 
+                            </select>
+                          </div>
                         </div>
-                        <div class="form-group custom-control custom-radio" >
-                            <input type="radio" id="radio_comum" name="tipo_user" class="custom-control-input" value="2">
-                            <label class="custom-control-label" for="radio_comum"> Comum</label>
-                        </div>
-
                         <button class="btn btn-lg btn-success btn-block" type="submit">Cadastrar</button>
                     </form>
 
