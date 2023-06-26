@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Relação de Documentos</title>
-    <!-- Incluir os arquivos CSS do Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
 
 
 </head>
@@ -28,7 +29,7 @@
                         <p>Não é possível remover usuário logado</p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location=remove_funcionario.php" >Close</button>
+                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location='remove_funcionario.php'" >Fechar</button>
                       </div>
                     </div>
                   </div>
@@ -47,7 +48,7 @@
                         <p>Usuário e documentos removidos</p>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location=remove_funcionario.php" >Close</button>
+                        <button type="button" class="btn btn-info" data-dismiss="show.bs.modal" onClick="parent.location='remove_funcionario.php'" >Fechar</button>
                       </div>
                     </div>
                   </div>
@@ -113,7 +114,6 @@
         </table>
     </div>
 
-    <!-- Incluir os arquivos JavaScript do Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
 </body>
 </html>

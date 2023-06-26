@@ -16,11 +16,16 @@
         if ($tipo == 'doc') {
             $nome_arquivo = $_POST['nome_documento'];
             $arquivo = $_FILES['pdf']['tmp_name'];
-            echo $nome_func = $_POST['nome_funcionario'];
-            $dados_arquivo = file_get_contents($arquivo);
+            $nome_func = $_POST['nome_funcionario'];
+            
             $cadastro = new CadastrarFunc('', '', '', '', $conexao);
             $id = $cadastro->recuperar($nome_func);
 
+            if($nome_arquivo == null || $arquivo == null || $nome_func == null ){
+                header('Location: tela_cadastro_documento.php?cadastro=null');
+            }
+            
+            $dados_arquivo = file_get_contents($arquivo);
             $cadastroDoc = new CadastrarDoc('', '', $conexao);
             $cadastroDoc->inserir($nome_arquivo, $dados_arquivo, $id);
             header('Location: tela_cadastro_documento.php?cadastro=success');

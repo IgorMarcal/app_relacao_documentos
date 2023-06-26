@@ -14,8 +14,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
-
     <style>
       .card-home{
         padding: 30px 0 0 0;
@@ -61,38 +59,41 @@
             <?php if($_SESSION['tipo_usuario_logado'] == 1){ ?>
                 <div class="card-body justify-content-center">
                     <div class="row">
-                        <div class="col-4 d-flex justify-content-center">
-                            <a href="relacao_documentos.php">
-                                <p>Meus documentos</p>
+                        <div class="col-12 d-flex justify-content-center">
+                            <a  href="relacao_documentos.php">
+                                <p class="text-info">Meus documentos</p>
                             </a>
-
                         </div>
-
-                        <div class="col-4 d-flex justify-content-center">
-                            <a href="tela_cadastro_documento.php">
-                                <p>Cadastrar documentos</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-start">
+                            <a class="link-success" href="tela_cadastro_documento.php">
+                                <p  class= "text-success" >Cadastrar documentos</p>
                             </a>  
                         </div>
-
-                        <div class="col-4 d-flex justify-content-center">
-                            <a href="tela_cadastro_funcionario.php">
-                                <p class="mx-auto">Cadastrar funcionário</p>
+                        <div class="col-6 d-flex justify-content-end">
+                            <a class="link-success" href="tela_cadastro_funcionario.php">
+                                <p class="mx-auto text-success">Cadastrar funcionário</p>
                             </a>  
                         </div>
-
-                        <div class="col-4 d-flex justify-content-center">
-                            <a href="remove_documento.php">
-                                <p class="mx-auto">Remover Documento</p>
+                        
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-start">
+                            <a class="link-danger" href="remove_documento.php">
+                                <p class="mx-auto text-danger">Remover Documento</p>
                             </a>  
                         </div>
-
-                        <div class="col-4 d-flex justify-content-center">
-                            <a href="remove_funcionario.php">
-                                <p class="mx-auto">Remover funcionario</p>
+                        <div class="col-6 d-flex justify-content-end">
+                            <a class="link-danger" href="remove_funcionario.php">
+                                <p class="mx-auto text-danger">Remover funcionario</p>
                             </a>  
                         </div>
                         
                     </div>
+
                 </div>
             <?}?>
 
