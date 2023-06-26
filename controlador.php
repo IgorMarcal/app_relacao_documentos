@@ -6,7 +6,6 @@
     
     $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
     $tipo = isset($_GET['tipo']) ? $_GET['tipo'] : $tipo;
-    $tela = isset($_GET['tela']) ? $_GET['tela'] : $tela;
 
 
     
@@ -30,6 +29,8 @@
             $email = $_POST['email'];
             $senha = $_POST['senha'];
             $tipo_user = $_POST['tipo_user'];
+            $tela = isset($_GET['tela']) ? $_GET['tela'] : $tela;
+
 
             $cadastro = new CadastrarFunc($nome, $email, $senha, $tipo_user, $conexao);
             $cadastro->inserir();
@@ -100,14 +101,14 @@
             $conexao = new Conexao();
             $remove = new CadastrarFunc('', '','','', $conexao);
             $consulta = new CadastrarFunc('', '','','', $conexao);
-            $id_logado = $consulta->recuperar->id('');
-            
+            $id_logado = $_SESSION['id_usuario'];
+        
 
-            if($id !== $id_logado){
+            if($id == $id_logado){   
+                header('Location: remove_funcionario.php?exclusao=0');
+            }else{
                 $remove->excluir($id);
                 header('Location: remove_funcionario.php?exclusao=1');
-            }else{
-                header('Location: remove_funcionario.php?exclusao=0');
             }
             
 
@@ -139,6 +140,7 @@
 
         if ($senhaAtual === $senhaAtualBanco) {
             $cadastroFuncionarios->updateSenha($email, $senhaNova);
+            $tela = isset($_GET['tela']) ? $_GET['tela'] : $tela;
 
             if($tela === 'index'){  
                 header('Location: alterar_senha_index.php?status=atualizado');
